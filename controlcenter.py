@@ -1,10 +1,10 @@
 __author__ = 'develru'
 
 from PySide import QtGui, QtCore
-import pyMainWindow
+import uiMainWindow
 
 
-class ControlWindow(QtGui.QMainWindow, pyMainWindow.Ui_MainWindow):
+class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
 
     def __init__(self, parent=None):
         super(ControlWindow, self).__init__(parent)
