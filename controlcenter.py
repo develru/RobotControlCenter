@@ -20,5 +20,14 @@ class ToolWindow(QtGui.QWidget, uiToolWindow.Ui_toolWin):
         self.setupUi(self)
 
     def closeEvent(self, event):
+        """
+        Override the close event, because wo don't allow to close this window.
+        :param event: The received event.
+        :return: None
+        """
+
         event.ignore()
         QtGui.QMessageBox.warning(self, 'Warning', 'The tool window is not to close!')
+
+    def activate_camera(self):
+        pass
