@@ -104,8 +104,8 @@
  <resources/>
  <connections>
   <connection>
-   <sender>menubar</sender>
-   <signal>triggered(QAction*)</signal>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>close()</slot>
    <hints>

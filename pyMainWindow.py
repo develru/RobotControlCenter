@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '.\mainWindow.ui'
 #
-# Created: Thu Jun 12 20:21:04 2014
+# Created: Thu Jun 12 20:52:51 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionConnect)
 
         self.retranslateUi(MainWindow)
-        QtCore.QObject.connect(self.menubar, QtCore.SIGNAL("triggered(QAction*)"), MainWindow.close)
+        QtCore.QObject.connect(self.actionExit, QtCore.SIGNAL("triggered()"), MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
