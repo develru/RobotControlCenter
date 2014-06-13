@@ -23,6 +23,9 @@
    </item>
    <item>
     <widget class="QPushButton" name="activateCamBtn">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="text">
       <string>Activate the camera</string>
      </property>

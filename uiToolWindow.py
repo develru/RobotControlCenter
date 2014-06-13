@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '.\toolWindow.ui'
 #
-# Created: Thu Jun 12 21:23:22 2014
+# Created: Fri Jun 13 20:06:40 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,6 +19,7 @@ class Ui_toolWin(object):
         self.connectBtn.setObjectName("connectBtn")
         self.verticalLayout.addWidget(self.connectBtn)
         self.activateCamBtn = QtGui.QPushButton(toolWin)
+        self.activateCamBtn.setEnabled(False)
         self.activateCamBtn.setObjectName("activateCamBtn")
         self.verticalLayout.addWidget(self.activateCamBtn)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
