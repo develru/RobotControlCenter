@@ -13,8 +13,8 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self.setupUi(self)
         tool_win = ToolWindow()
         self.mdiArea.addSubWindow(tool_win)
-        self.log_win = LogWindow()
-        self.mdiArea.addSubWindow(self.log_win)
+        # self.log_win = LogWindow()
+        # self.mdiArea.addSubWindow(self.log_win)
 
 
 class ToolWindow(QtGui.QWidget, uiToolWindow.Ui_toolWin):

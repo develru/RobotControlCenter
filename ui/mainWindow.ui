@@ -18,6 +18,9 @@
     <item>
      <widget class="QMdiArea" name="mdiArea"/>
     </item>
+    <item>
+     <widget class="QTextBrowser" name="tBrLog"/>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -75,8 +78,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>27</x>
-     <y>10</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>126</x>

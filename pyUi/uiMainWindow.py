@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file '.\mainWindow.ui'
 #
-# Created: Fri Jun 13 20:24:51 2014
+# Created: Fri Jun 13 20:49:15 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -34,6 +34,9 @@ class Ui_MainWindow(object):
         self.mdiArea = QtGui.QMdiArea(self.centralwidget)
         self.mdiArea.setObjectName(_fromUtf8("mdiArea"))
         self.verticalLayout.addWidget(self.mdiArea)
+        self.tBrLog = QtGui.QTextBrowser(self.centralwidget)
+        self.tBrLog.setObjectName(_fromUtf8("tBrLog"))
+        self.verticalLayout.addWidget(self.tBrLog)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 831, 21))
