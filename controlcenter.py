@@ -4,6 +4,7 @@ __author__ = 'develru'
 from PyQt4 import QtGui
 import uiMainWindow
 import uiToolWindow
+import uiLogWindow
 
 
 class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
@@ -13,6 +14,8 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self.setupUi(self)
         tool_win = ToolWindow()
         self.mdiArea.addSubWindow(tool_win)
+        self.log_win = LogWindow()
+        self.mdiArea.addSubWindow(self.log_win)
 
 
 class ToolWindow(QtGui.QWidget, uiToolWindow.Ui_toolWin):
@@ -32,3 +35,10 @@ class ToolWindow(QtGui.QWidget, uiToolWindow.Ui_toolWin):
 
     def activate_camera(self):
         pass
+
+
+class LogWindow(QtGui.QWidget, uiLogWindow.Ui_logWin):
+
+    def __init__(self, parent=None):
+        super(LogWindow, self).__init__(parent)
+        self.setupUi(self)
