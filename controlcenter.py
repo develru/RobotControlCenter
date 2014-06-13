@@ -1,10 +1,9 @@
+from pyUi import uiLogWindow, uiMainWindow, uiToolWindow
+
 __author__ = 'develru'
 
 # from PySide import QtGui
 from PyQt4 import QtGui
-import uiMainWindow
-import uiToolWindow
-import uiLogWindow
 
 
 class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
