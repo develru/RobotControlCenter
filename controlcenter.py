@@ -1,6 +1,7 @@
 __author__ = 'develru'
 
-from PySide import QtGui, QtCore
+# from PySide import QtGui
+from PyQt4 import QtGui
 import uiMainWindow
 import uiToolWindow
 
