@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\mainWindow.ui'
+# Form implementation generated from reading ui file 'mainWindow.ui'
 #
-# Created: Fri Jun 13 20:49:15 2014
+# Created: Wed Jun 18 10:55:51 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,9 +31,26 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.groupBox = QtGui.QGroupBox(self.centralwidget)
+        self.groupBox.setObjectName(_fromUtf8("groupBox"))
+        self.verticalLayout_3 = QtGui.QVBoxLayout(self.groupBox)
+        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        self.connectBtn = QtGui.QPushButton(self.groupBox)
+        self.connectBtn.setObjectName(_fromUtf8("connectBtn"))
+        self.verticalLayout_3.addWidget(self.connectBtn)
+        self.cameraBtn = QtGui.QPushButton(self.groupBox)
+        self.cameraBtn.setEnabled(False)
+        self.cameraBtn.setObjectName(_fromUtf8("cameraBtn"))
+        self.verticalLayout_3.addWidget(self.cameraBtn)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem)
+        self.horizontalLayout.addWidget(self.groupBox)
         self.mdiArea = QtGui.QMdiArea(self.centralwidget)
         self.mdiArea.setObjectName(_fromUtf8("mdiArea"))
-        self.verticalLayout.addWidget(self.mdiArea)
+        self.horizontalLayout.addWidget(self.mdiArea)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         self.tBrLog = QtGui.QTextBrowser(self.centralwidget)
         self.tBrLog.setObjectName(_fromUtf8("tBrLog"))
         self.verticalLayout.addWidget(self.tBrLog)
@@ -66,6 +83,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Control Center", None))
+        self.groupBox.setTitle(_translate("MainWindow", "Tools", None))
+        self.connectBtn.setText(_translate("MainWindow", "Connect", None))
+        self.cameraBtn.setText(_translate("MainWindow", "Activate the Camera", None))
         self.menuControl.setTitle(_translate("MainWindow", "Control", None))
         self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar", None))
         self.actionConnect.setText(_translate("MainWindow", "Connect", None))
