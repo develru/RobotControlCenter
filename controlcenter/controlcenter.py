@@ -1,6 +1,6 @@
 from pyUi import uiLogWindow, uiMainWindow, uiToolWindow, uiConnectWindow
-# from PySide import QtGui
 from PyQt4 import QtGui
+from connection import ControlConnection
 
 __author__ = 'develru'
 
@@ -13,13 +13,14 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self.connect_win = ConnectWindow()
         self._connect_subwindow = self.mdiArea.addSubWindow(self.connect_win)
         self._connect_subwindow.hide()
-        #self.mdiArea.addSubWindow(self.connect_win)
-        #self.connect_win.hide()
+
+        self._connection = ControlConnection()
 
         self.connectBtn.clicked.connect(self.connect_to_robot)
 
         # Connect window
         self.connect_win.cancelBtn.clicked.connect(self.cancel_connect_window)
+        self.connect_win.connectBtn.clicked.connect(self.start_connection)
 
     def connect_to_robot(self):
         self._connect_subwindow.show()
@@ -27,6 +28,9 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
 
     def cancel_connect_window(self):
         self._connect_subwindow.close()
+
+    def start_connection(self):
+        self._connection.connect_to_host('localhost', 9999)
 
 
 class LogWindow(QtGui.QWidget, uiLogWindow.Ui_logWin):
