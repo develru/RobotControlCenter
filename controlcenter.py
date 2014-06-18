@@ -11,15 +11,22 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         super(ControlWindow, self).__init__(parent)
         self.setupUi(self)
         self.connect_win = ConnectWindow()
+        self._connect_subwindow = self.mdiArea.addSubWindow(self.connect_win)
+        self._connect_subwindow.hide()
         #self.mdiArea.addSubWindow(self.connect_win)
         #self.connect_win.hide()
 
         self.connectBtn.clicked.connect(self.connect_to_robot)
 
+        # Connect window
+        self.connect_win.cancelBtn.clicked.connect(self.cancel_connect_window)
+
     def connect_to_robot(self):
-        self.mdiArea.addSubWindow(self.connect_win)
-        self.connect_win.show()
+        self._connect_subwindow.show()
         self.tBrLog.append('Connect pressed')
+
+    def cancel_connect_window(self):
+        self._connect_subwindow.close()
 
 
 class LogWindow(QtGui.QWidget, uiLogWindow.Ui_logWin):

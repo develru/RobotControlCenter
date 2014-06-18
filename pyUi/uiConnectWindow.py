@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'connectWindow.ui'
 #
-# Created: Fri Jun 13 22:42:48 2014
+# Created: Wed Jun 18 11:12:19 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -47,12 +47,12 @@ class Ui_winConnect(object):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
-        self.pushButton = QtGui.QPushButton(winConnect)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.horizontalLayout.addWidget(self.pushButton)
-        self.pushButton_2 = QtGui.QPushButton(winConnect)
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.horizontalLayout.addWidget(self.pushButton_2)
+        self.connectBtn = QtGui.QPushButton(winConnect)
+        self.connectBtn.setObjectName(_fromUtf8("connectBtn"))
+        self.horizontalLayout.addWidget(self.connectBtn)
+        self.cancelBtn = QtGui.QPushButton(winConnect)
+        self.cancelBtn.setObjectName(_fromUtf8("cancelBtn"))
+        self.horizontalLayout.addWidget(self.cancelBtn)
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(winConnect)
@@ -62,6 +62,6 @@ class Ui_winConnect(object):
         winConnect.setWindowTitle(_translate("winConnect", "Connect to robot", None))
         self.label.setText(_translate("winConnect", "Host", None))
         self.label_2.setText(_translate("winConnect", "Port", None))
-        self.pushButton.setText(_translate("winConnect", "Connect", None))
-        self.pushButton_2.setText(_translate("winConnect", "Cancel", None))
+        self.connectBtn.setText(_translate("winConnect", "Connect", None))
+        self.cancelBtn.setText(_translate("winConnect", "Cancel", None))
 
