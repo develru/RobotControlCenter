@@ -1,33 +1,40 @@
 __author__ = 'develru'
 
-from twisted.internet.protocol import Protocol, ClientFactory
-from twisted.internet import reactor
-
-
-class Control(Protocol):
-
-    def dataReceived(self, data):
-        print(data)
-
-
-class ControlClientFactory(ClientFactory):
-
-    def startedConnecting(self, connector):
-        print('Started connecting...')
-
-    def buildProtocol(self, addr):
-        print('Connected.')
-        return Control()
-
-    def clientConnectionLost(self, connector, reason):
-        print('Lost connection. Reason: ', reason)
-
-    def clientConnectionFailed(self, connector, reason):
-        print('Client connection failed. Reason: ', reason)
+from PyQt4 import QtNetwork
+# from twisted.internet.protocol import Protocol, ClientFactory
+# from twisted.internet import reactor
+#
+#
+# class Control(Protocol):
+#
+# def dataReceived(self, data):
+#         print(data)
+#
+#
+# class ControlClientFactory(ClientFactory):
+#
+#     def startedConnecting(self, connector):
+#         print('Started connecting...')
+#
+#     def buildProtocol(self, addr):
+#         print('Connected.')
+#         return Control()
+#
+#     def clientConnectionLost(self, connector, reason):
+#         print('Lost connection. Reason: ', reason)
+#
+#     def clientConnectionFailed(self, connector, reason):
+#         print('Client connection failed. Reason: ', reason)
+#
+#
+# class ControlConnection():
+#
+#     def connect_to_host(self, host, port):
+#         reactor.connectTCP(host, port, ControlClientFactory())
+#         reactor.run()
 
 
 class ControlConnection():
+    def __init__(self):
+        self._connection = QtNetwork.QTcpSocket()
 
-    def connect_to_host(self, host, port):
-        reactor.connectTCP(host, port, ControlClientFactory())
-        reactor.run()
