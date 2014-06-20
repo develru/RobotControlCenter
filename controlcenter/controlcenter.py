@@ -26,18 +26,25 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
 
     def connect_to_robot(self):
         self._connect_subwindow.show()
-        self.tBrLog.append('Connect pressed')
 
     def cancel_connect_window(self):
         self._connect_subwindow.close()
 
     def start_connection(self):
-        #self.connect_win.lE
-        self._TCP_socket.connectToHost('localhost', 9999)
+        host = self.connect_win.lEHost.text()
+        port = int(self.connect_win.lEPort.text())
+        self.tBrLog.append('Connect to host: {0} on port: {1}'.format(host, port))
+        self._TCP_socket.connectToHost(host, port)
         self._TCP_socket.waitForConnected(-1)
         self._TCP_socket.waitForReadyRead(-1)
         message = self._TCP_socket.readData(10)
-        print('Message: {0}'.format(message))
+        self.tBrLog.append('Message: {0}'.format(message))
+
+        if 'Connected' in message:
+            self._connect_subwindow.close()
+        else:
+            QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
+
 
 
 class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
