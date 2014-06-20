@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'connectWindow.ui'
 #
-# Created: Wed Jun 18 11:12:19 2014
+# Created: Fri Jun 20 09:25:31 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -32,15 +32,15 @@ class Ui_winConnect(object):
         self.label = QtGui.QLabel(winConnect)
         self.label.setObjectName(_fromUtf8("label"))
         self.verticalLayout.addWidget(self.label)
-        self.lineEdit = QtGui.QLineEdit(winConnect)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.verticalLayout.addWidget(self.lineEdit)
+        self.lEHost = QtGui.QLineEdit(winConnect)
+        self.lEHost.setObjectName(_fromUtf8("lEHost"))
+        self.verticalLayout.addWidget(self.lEHost)
         self.label_2 = QtGui.QLabel(winConnect)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.verticalLayout.addWidget(self.label_2)
-        self.lineEdit_2 = QtGui.QLineEdit(winConnect)
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.verticalLayout.addWidget(self.lineEdit_2)
+        self.lEPort = QtGui.QLineEdit(winConnect)
+        self.lEPort.setObjectName(_fromUtf8("lEPort"))
+        self.verticalLayout.addWidget(self.lEPort)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QtGui.QHBoxLayout()
@@ -61,7 +61,10 @@ class Ui_winConnect(object):
     def retranslateUi(self, winConnect):
         winConnect.setWindowTitle(_translate("winConnect", "Connect to robot", None))
         self.label.setText(_translate("winConnect", "Host", None))
+        self.lEHost.setText(_translate("winConnect", "localhost", None))
         self.label_2.setText(_translate("winConnect", "Port", None))
+        self.lEPort.setInputMask(_translate("winConnect", "D000; ", None))
+        self.lEPort.setText(_translate("winConnect", "9999", None))
         self.connectBtn.setText(_translate("winConnect", "Connect", None))
         self.cancelBtn.setText(_translate("winConnect", "Cancel", None))
 

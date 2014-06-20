@@ -22,7 +22,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit"/>
+    <widget class="QLineEdit" name="lEHost">
+     <property name="text">
+      <string>localhost</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_2">
@@ -32,7 +36,14 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit_2"/>
+    <widget class="QLineEdit" name="lEPort">
+     <property name="inputMask">
+      <string>D000; </string>
+     </property>
+     <property name="text">
+      <string>9999</string>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">

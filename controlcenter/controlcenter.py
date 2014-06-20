@@ -1,4 +1,4 @@
-from pyUi import uiLogWindow, uiMainWindow, uiToolWindow, uiConnectWindow
+from pyUi import uiMainWindow, uiToolWindow, uiConnectWindow
 from PyQt4 import QtGui, QtNetwork
 from connection import ControlConnection
 
@@ -32,18 +32,12 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self._connect_subwindow.close()
 
     def start_connection(self):
+        #self.connect_win.lE
         self._TCP_socket.connectToHost('localhost', 9999)
         self._TCP_socket.waitForConnected(-1)
         self._TCP_socket.waitForReadyRead(-1)
         message = self._TCP_socket.readData(10)
         print('Message: {0}'.format(message))
-
-
-class LogWindow(QtGui.QWidget, uiLogWindow.Ui_logWin):
-
-    def __init__(self, parent=None):
-        super(LogWindow, self).__init__(parent)
-        self.setupUi(self)
 
 
 class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
