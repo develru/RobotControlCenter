@@ -31,6 +31,13 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self.connect_win.cancelBtn.clicked.connect(self.cancel_connect_window)
         self.connect_win.connectBtn.clicked.connect(self.start_connection)
 
+        # Drive window signals
+        self.drive_win.btnForward.clicked.connect(self.forward)
+        self.drive_win.btnBackward.clicked.connect(self.backward)
+        self.drive_win.btnLeft.clicked.connect(self.left)
+        self.drive_win.btnRight.clicked.connect(self.right)
+        self.drive_win.btnStop.clicked.connect(self.stop)
+
     def connect_to_robot(self):
         self._connect_subwindow.show()
 
@@ -56,6 +63,20 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         else:
             QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
 
+    def forward(self):
+        self._TCP_socket.writeData('FW')
+
+    def backward(self):
+        self._TCP_socket.writeData('BW')
+
+    def left(self):
+        self._TCP_socket.writeData('LT')
+
+    def right(self):
+        self._TCP_socket.writeData('RT')
+
+    def stop(self):
+        self._TCP_socket.writeData('ST')
 
 class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
 
