@@ -1,4 +1,4 @@
-from pyUi import uiMainWindow, uiToolWindow, uiConnectWindow
+from pyUi import uiMainWindow, uiConnectWindow, uiDriveWindow
 from PyQt4 import QtGui, QtNetwork
 from connection import ControlConnection
 
@@ -10,17 +10,24 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
     def __init__(self, parent=None):
         super(ControlWindow, self).__init__(parent)
         self.setupUi(self)
-        self.connect_win = ConnectWindow()
+
+        # Members
         self._TCP_socket = QtNetwork.QTcpSocket()
-
-        self._connect_subwindow = self.mdiArea.addSubWindow(self.connect_win)
-        self._connect_subwindow.hide()
-
+        self.connect_win = ConnectWindow()
+        self.drive_win = DriveWindow()
         self._connection = ControlConnection()
 
-        self.connectBtn.clicked.connect(self.connect_to_robot)
+        # Subwindows
+        self._connect_subwindow = self.mdiArea.addSubWindow(self.connect_win)
+        self._connect_subwindow.hide()
+        self._drive_subwindow = self.mdiArea.addSubWindow(self.drive_win)
+        self._drive_subwindow.hide()
 
-        # Connect window
+        # Signals
+        self.connectBtn.clicked.connect(self.connect_to_robot)
+        self.btnManualDrive.clicked.connect(self.start_manuel_drive)
+
+        # Connect window signals
         self.connect_win.cancelBtn.clicked.connect(self.cancel_connect_window)
         self.connect_win.connectBtn.clicked.connect(self.start_connection)
 
@@ -29,6 +36,9 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
 
     def cancel_connect_window(self):
         self._connect_subwindow.close()
+
+    def start_manuel_drive(self):
+        self._drive_subwindow.show()
 
     def start_connection(self):
         host = self.connect_win.lEHost.text()
@@ -42,13 +52,20 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
 
         if 'Connected' in message:
             self._connect_subwindow.close()
+            self.btnManualDrive.setEnabled(True)
         else:
             QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
-
 
 
 class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
 
     def __init__(self, parent=None):
         super(ConnectWindow, self).__init__(parent)
+        self.setupUi(self)
+
+
+class DriveWindow(QtGui.QWidget, uiDriveWindow.Ui_Form):
+
+    def __init__(self, parent=None):
+        super(DriveWindow, self).__init__(parent)
         self.setupUi(self)

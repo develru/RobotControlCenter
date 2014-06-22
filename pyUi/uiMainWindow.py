@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainWindow.ui'
 #
-# Created: Wed Jun 18 10:55:51 2014
+# Created: Sun Jun 22 13:37:05 2014
 #      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,6 +44,10 @@ class Ui_MainWindow(object):
         self.cameraBtn.setEnabled(False)
         self.cameraBtn.setObjectName(_fromUtf8("cameraBtn"))
         self.verticalLayout_3.addWidget(self.cameraBtn)
+        self.btnManualDrive = QtGui.QPushButton(self.groupBox)
+        self.btnManualDrive.setEnabled(False)
+        self.btnManualDrive.setObjectName(_fromUtf8("btnManualDrive"))
+        self.verticalLayout_3.addWidget(self.btnManualDrive)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout_3.addItem(spacerItem)
         self.horizontalLayout.addWidget(self.groupBox)
@@ -86,6 +90,7 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle(_translate("MainWindow", "Tools", None))
         self.connectBtn.setText(_translate("MainWindow", "Connect", None))
         self.cameraBtn.setText(_translate("MainWindow", "Activate the Camera", None))
+        self.btnManualDrive.setText(_translate("MainWindow", "Manual Drive Mode", None))
         self.menuControl.setTitle(_translate("MainWindow", "Control", None))
         self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar", None))
         self.actionConnect.setText(_translate("MainWindow", "Connect", None))
