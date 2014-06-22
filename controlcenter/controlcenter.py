@@ -45,7 +45,16 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self._connect_subwindow.close()
 
     def start_manuel_drive(self):
-        self._drive_subwindow.show()
+        self._TCP_socket.writeData('DRVST')
+        self._TCP_socket.waitForReadyRead(3000)
+        message = self._TCP_socket.readData(10)
+        self.tBrLog.append('Message: {0}'.format(message))
+
+        if 'online' in message:
+            self.tBrLog.append('Drive module is connected')
+            self._drive_subwindow.show()
+        else:
+            QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
 
     def start_connection(self):
         host = self.connect_win.lEHost.text()
