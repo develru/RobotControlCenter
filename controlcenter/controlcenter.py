@@ -92,6 +92,7 @@ class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
     def __init__(self, parent=None):
         super(ConnectWindow, self).__init__(parent)
         self.setupUi(self)
+        self.lEHost.setText('192.168.2.125')
 
 
 class DriveWindow(QtGui.QWidget, uiDriveWindow.Ui_Form):
