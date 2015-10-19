@@ -1,6 +1,6 @@
 from pyUi import uiMainWindow, uiConnectWindow, uiDriveWindow
 from PyQt4 import QtGui, QtNetwork
-from connection import ControlConnection
+from controlcenter.connection import ControlConnection
 
 __author__ = 'develru'
 
@@ -45,47 +45,51 @@ class ControlWindow(QtGui.QMainWindow, uiMainWindow.Ui_MainWindow):
         self._connect_subwindow.close()
 
     def start_manuel_drive(self):
-        self._TCP_socket.writeData('DRVST')
+        self._TCP_socket.writeData(b'DRVST')
         self._TCP_socket.waitForReadyRead(3000)
         message = self._TCP_socket.readData(10)
         self.tBrLog.append('Message: {0}'.format(message))
 
-        if 'online' in message:
+        if 'online' in str(message):
             self.tBrLog.append('Drive module is connected')
             self._drive_subwindow.show()
         else:
-            QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
+            QtGui.QMessageBox.critical(self, 'Connection error!',
+                                       'The connection failed!')
 
     def start_connection(self):
         host = self.connect_win.lEHost.text()
         port = int(self.connect_win.lEPort.text())
-        self.tBrLog.append('Connect to host: {0} on port: {1}'.format(host, port))
+        self.tBrLog.append('Connect to host: {0} on port: {1}'.format(host,
+                                                                      port))
         self._TCP_socket.connectToHost(host, port)
         self._TCP_socket.waitForConnected(-1)
         self._TCP_socket.waitForReadyRead(-1)
         message = self._TCP_socket.readData(10)
         self.tBrLog.append('Message: {0}'.format(message))
 
-        if 'Connected' in message:
+        if 'Connected' in str(message):
             self._connect_subwindow.close()
             self.btnManualDrive.setEnabled(True)
         else:
-            QtGui.QMessageBox.critical(self, 'Connection error!', 'The connection failed!')
+            QtGui.QMessageBox.critical(self, 'Connection error!',
+                                       'The connection failed!')
 
     def forward(self):
-        self._TCP_socket.writeData('FW')
+        self._TCP_socket.writeData(b'FW')
 
     def backward(self):
-        self._TCP_socket.writeData('BW')
+        self._TCP_socket.writeData(b'BW')
 
     def left(self):
-        self._TCP_socket.writeData('LT')
+        self._TCP_socket.writeData(b'LT')
 
     def right(self):
-        self._TCP_socket.writeData('RT')
+        self._TCP_socket.writeData(b'RT')
 
     def stop(self):
-        self._TCP_socket.writeData('ST')
+        self._TCP_socket.writeData(b'ST')
+
 
 class ConnectWindow(QtGui.QWidget, uiConnectWindow.Ui_winConnect):
 
