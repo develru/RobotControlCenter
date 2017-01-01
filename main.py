@@ -8,8 +8,12 @@ class ConnectScreen(Screen):
 
     """The Connect screen"""
 
-    pass
+    def on_connect_pressed(self):
+        """The connect button was pressed, connect to the robot.
+        :returns: TODO
 
+        """
+        print('Connect')
 
 
 class RobotControllApp(App):
