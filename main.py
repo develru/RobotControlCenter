@@ -1,14 +1,22 @@
-from controlcenter import controlcenter
+import kivy
+kivy.require('1.9.0')
+from kivy.uix.gridlayout import GridLayout
+from kivy.app import App
 
-__author__ = 'develru'
 
-import sys
-# from PySide import QtGui
-from PyQt4 import QtGui
+class MainLayout(GridLayout):
+
+    """The main layout of the kivy app"""
+
+    pass
+
+class RobotControllApp(App):
+
+    """The main app to controll the robot."""
+
+    def build(self):
+        return MainLayout()
+
 
 if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
-    cc = controlcenter.ControlWindow()
-    cc.show()
-    app.exec_()
-
+    RobotControllApp().run()
