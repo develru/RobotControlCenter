@@ -1,4 +1,5 @@
 <ConnectScreen>:
+    name: 'connect'
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
@@ -24,3 +25,34 @@
             Button:
                 text: 'Connect'
                 on_press: root.on_connect_pressed()
+
+
+<DriveScreen>:
+    name: 'drive'
+    #: set group_height '80dp'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: log
+            text_size: self.size
+            valign: 'top'
+            font_size: '25dp'
+            text: 'Drive Module'
+        Button:
+            size_hint_y: None
+            height: group_height
+            text: 'Forward'
+        BoxLayout:
+            size_hint_y: None
+            height: group_height
+            Button:
+                text: 'Right'
+            Button:
+                text: 'Stop'
+            Button:
+                text: 'Left'
+        Button:
+            size_hint_y: None
+            height: group_height
+            text: 'Backward'
+
