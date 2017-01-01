@@ -1,0 +1,26 @@
+<ConnectScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Label:
+                text: 'IP Adress: '
+            TextInput:
+                text: '192.168.0.19'
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Label:
+                text: 'Port: '
+            TextInput:
+                text: '9999'
+        BoxLayout:
+            size_hint_y: None
+            height: '50dp'
+            Button:
+                text: 'Quit'
+                on_press: app.stop()
+            Button:
+                text: 'Connect'
+                on_press: root.on_connect_pressed()
