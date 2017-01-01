@@ -1,21 +1,25 @@
 import kivy
 kivy.require('1.9.0')
-from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
+from kivy.uix.screenmanager import Screen, ScreenManager
 
 
-class MainLayout(GridLayout):
+class ConnectScreen(Screen):
 
-    """The main layout of the kivy app"""
+    """The Connect screen"""
 
     pass
+
+
 
 class RobotControllApp(App):
 
     """The main app to controll the robot."""
 
     def build(self):
-        return MainLayout()
+        sm = ScreenManager()
+        sm.add_widget(ConnectScreen(name='connect'))
+        return sm
 
 
 if __name__ == '__main__':
