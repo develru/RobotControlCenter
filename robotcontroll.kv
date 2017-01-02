@@ -1,5 +1,7 @@
 <ConnectScreen>:
     name: 'connect'
+    ip_input: ip_input
+    port_input: port_input
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
@@ -8,6 +10,7 @@
             Label:
                 text: 'IP Adress: '
             TextInput:
+                id: ip_input
                 text: '192.168.0.19'
         BoxLayout:
             size_hint_y: None
@@ -15,6 +18,7 @@
             Label:
                 text: 'Port: '
             TextInput:
+                id: port_input
                 text: '9999'
         BoxLayout:
             size_hint_y: None
@@ -29,11 +33,12 @@
 
 <DriveScreen>:
     name: 'drive'
+    log_label: log_label
     #: set group_height '80dp'
     BoxLayout:
         orientation: 'vertical'
         Label:
-            id: log
+            id: log_label
             text_size: self.size
             valign: 'top'
             font_size: '25dp'
@@ -42,17 +47,22 @@
             size_hint_y: None
             height: group_height
             text: 'Forward'
+            on_press: app.send_message(b'FW')
         BoxLayout:
             size_hint_y: None
             height: group_height
             Button:
                 text: 'Right'
+                on_press: app.send_message(b'RT')
             Button:
                 text: 'Stop'
+                on_press: app.send_message(b'ST')
             Button:
                 text: 'Left'
+                on_press: app.send_message(b'LT')
         Button:
             size_hint_y: None
             height: group_height
             text: 'Backward'
+            on_press: app.send_message(b'BW')
 
